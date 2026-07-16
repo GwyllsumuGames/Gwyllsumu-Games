@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gwyllsumu Games</title>
+    <style>
+        /* Genel Tasarım ve Karanlık Atmosfer */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #080808;
+            color: #e5e5e5;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 30px;
+            z-index: 2;
+        }
+
+        /* Korku Temalı Başlık */
+        h1 {
+            font-size: 2.8rem;
+            letter-spacing: 8px;
+            color: #990000; /* Kan Kırmızısı */
+            text-shadow: 0 0 15px rgba(153, 0, 0, 0.6);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        /* Gizemli Alıntı */
+        .teaser {
+            font-style: italic;
+            color: #888;
+            border-left: 2px solid #990000;
+            padding-left: 15px;
+            margin: 25px 0;
+            font-size: 1.1rem;
+            text-align: left;
+            display: inline-block;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #aaa;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            letter-spacing: 1px;
+        }
+
+        /* Butonlar */
+        .links {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 10px;
+            color: #e5e5e5;
+            text-decoration: none;
+            border: 1px solid #990000;
+            background: rgba(153, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+        }
+
+        .btn:hover {
+            background-color: #990000;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(153, 0, 0, 0.6);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Titreme / Parıldama Efekti (Flicker) */
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                opacity: 1;
+                text-shadow: 0 0 15px rgba(153, 0, 0, 0.6);
+            }
+            20%, 24%, 55% {
+                opacity: 0.3;
+                text-shadow: none;
+            }
+        }
+
+        .flicker {
+            animation: flicker 5s infinite alternate;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="flicker">STÜDYO ADI</h1>
+        
+        <div class="teaser">
+            "Karanlıkta fısıldayan sesleri duyabiliyor musun?"
+        </div>
+        
+        <p>İlk korku oyunumuz şu an yapım aşamasında. Çok yakında kabuslarınızla buluşacağız.</p>
+        
+        <div class="links">
+            <a href="https://instagram.com/kullaniciadin" class="btn" target="_blank">Instagram</a>
+            <a href="mailto:iletisim@studyoadi.com" class="btn">İLETİŞİM</a>
+        </div>
+    </div>
+
+</body>
+</html>
