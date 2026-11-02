@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Prestijli ve yüksek okunabilirlik sunan Google Fontları -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <title>The Absentee — Official Game Website</title>
+    <title>The Absentee — Official Website</title>
     
     <style>
         /* TEMEL RENKLER VE AYARLAR */
@@ -83,9 +83,9 @@
         .nav-links a {
             color: var(--text-body);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 400;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             transition: color 0.25s ease;
         }
@@ -126,7 +126,7 @@
             100% { opacity: 1; }
         }
 
-        /* GİRİŞ EKRANI (HERO) - Resimsiz, Saf Atmosferik Işıklandırma */
+        /* GİRİŞ EKRANI (HERO) - Saf CSS Atmosferik Işıklandırma */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -135,7 +135,6 @@
             text-align: center;
             padding: 120px 20px 80px;
             position: relative;
-            /* Dışarıdan bozuk resim çekmek yerine CSS ile karanlık kırmızı sis efekti */
             background: 
                 radial-gradient(circle at 50% 35%, rgba(185, 28, 28, 0.14) 0%, rgba(6, 6, 8, 0) 60%),
                 radial-gradient(circle at 50% 80%, rgba(25, 25, 35, 0.4) 0%, rgba(6, 6, 8, 1) 70%);
@@ -143,11 +142,11 @@
         }
 
         .hero-inner {
-            max-width: 820px;
+            max-width: 840px;
         }
 
         .eyebrow {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 4px;
             color: var(--crimson);
@@ -168,7 +167,7 @@
         .hero-quote {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            font-size: 1.6rem;
+            font-size: 1.65rem;
             color: var(--text-body);
             margin-bottom: 45px;
             font-weight: 400;
@@ -217,6 +216,7 @@
             color: var(--text-muted);
             font-size: 0.95rem;
             margin: 0;
+            font-style: italic;
         }
 
         .narrative-content p {
@@ -236,9 +236,9 @@
         }
 
         .evidence-meta {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             color: var(--text-muted);
             margin-bottom: 12px;
             display: block;
@@ -253,7 +253,7 @@
             line-height: 1.5;
         }
 
-        /* ÖZELLİKLER LİSTESİ */
+        /* GİZEMLİ KURALLAR LİSTESİ */
         .pillars-list {
             display: flex;
             flex-direction: column;
@@ -291,7 +291,7 @@
             color: var(--text-body);
         }
 
-        /* YENİ BÖLÜM: RESİMSİZ PROJE KÜNYESİ VE GELİŞTİRME DURUMU */
+        /* ANOMALİ VE KANIT KUTULARI */
         .specs-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -308,16 +308,25 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--text-muted);
+            color: var(--crimson);
             display: block;
             margin-bottom: 8px;
+            font-weight: 600;
         }
 
         .spec-value {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-size: 1.45rem;
             color: var(--text-bright);
             font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .spec-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.55;
         }
 
         /* STÜDYO VE TOPLULUK BÖLÜMÜ */
@@ -400,11 +409,11 @@
 
     <!-- ÜST MENÜ -->
     <nav>
-        <a href="#" class="studio-logo">GWYLLSUMU<span>GAMES</span></a>
+        <a href="#" class="studio-logo">YOUR<span>STUDIO</span></a>
         <div class="nav-links">
-            <a href="#story">The Story</a>
-            <a href="#gameplay">Gameplay</a>
-            <a href="#status">Overview</a>
+            <a href="#lockdown">The Lockdown</a>
+            <a href="#protocols">Protocols</a>
+            <a href="#anomalies">Anomalies</a>
             <div class="nav-status">
                 <span class="pulse-dot"></span> itch.io Demo Soon
             </div>
@@ -414,9 +423,9 @@
     <!-- GİRİŞ EKRANI -->
     <header class="hero">
         <div class="hero-inner">
-            <span class="eyebrow">A First-Person Psychological Horror</span>
-            <h1>DARK SECRET</h1>
-            <p class="hero-quote">"To document the monster, you must first let it sit at your table."</p>
+            <span class="eyebrow">St. Jude University // Dormitory Curfew</span>
+            <h1>The Absentee</h1>
+            <p class="hero-quote">"Whoever is knocking after 11:00 PM is not your roommate. You are both already inside."</p>
             
             <div class="demo-badge">
                 <span class="pulse-dot"></span> itch.io Demo Soon
@@ -424,92 +433,96 @@
         </div>
     </header>
 
-    <!-- BÖLÜM 1: HİKAYE -->
-    <section id="story" class="split-section">
+    <!-- BÖLÜM 1: KARANTİNA VE PARANOYA (HİKAYE) -->
+    <section id="lockdown" class="split-section">
         <div class="sticky-header">
-            <span class="eyebrow">01 / Synopsis</span>
-            <h2>The Echoes of Blackwood</h2>
-            <p>Autumn, 1994. Northern Maine.</p>
+            <span class="eyebrow">01 / The Lockdown</span>
+            <h2>The Fourth Breathing</h2>
+            <p>4th Floor, East Hallway. Doors bolted.</p>
         </div>
         
         <div class="narrative-content">
-            <p>For twelve years, the charred remains of the Blackwood Estate have stood untouched behind police cordons. The official investigation concluded it was an accidental electrical fire. Your sister, an investigative archivist, disagreed—until she vanished inside the perimeter three days ago.</p>
+            <p>According to university housing records, only three students are assigned to Room 409. Yet tonight, when the hallway lights died and the heavy fog swallowed the campus courtyard, you counted four distinct people breathing in the dark.</p>
             
             <div class="evidence-card">
-                <span class="evidence-meta">Recovered Audio Log — Tape #04</span>
-                <blockquote>"The floorboards don't creak because they are old. They creak because something underneath is pressing up against them. Do not come looking for me."</blockquote>
+                <span class="evidence-meta">Voice Memo — Recorded Under the Blankets (02:14 AM)</span>
+                <blockquote>"It copies his voice down to the slight cough when he laughs. It wears his clothes. It knows his hometown. But when I looked down from the top bunk ten minutes ago, I watched it practicing how to smile in the dark."</blockquote>
             </div>
 
-            <p>Armed only with an analog camcorder and her unfinished research notes, you step past the rusted gates. As night falls, the architecture of the estate begins to defy logic, forcing you to confront the disturbing history of its former residents.</p>
+            <p>The campus phones are dead, and the resident advisor hasn't answered his door since sundown. Everyone in the room wears a familiar face, shares your classes, and swears they are human. But one of them forgets to blink when they think nobody is watching. Before morning comes, you must figure out who is wearing your friend's skin—because if you turn your back on the wrong one, it will be wearing yours next.</p>
         </div>
     </section>
 
-    <!-- BÖLÜM 2: OYNANIŞ -->
-    <section id="gameplay" class="split-section">
+    <!-- BÖLÜM 2: YURT PROTOKOLLERİ (Mekanikleri gizlice anlatan kurallar) -->
+    <section id="protocols" class="split-section">
         <div class="sticky-header">
-            <span class="eyebrow">02 / Mechanics</span>
-            <h2>Design Pillars</h2>
-            <p>Built for tension, not cheap jump scares.</p>
+            <span class="eyebrow">02 / Protocols</span>
+            <h2>Dormitory Survival Rules</h2>
+            <p>Found taped to the inside of the bathroom door.</p>
         </div>
 
         <div class="pillars-list">
             <div class="pillar-item">
                 <div class="pillar-num">I.</div>
                 <div>
-                    <h3>Tactile Investigation</h3>
-                    <p>No floating quest markers or hand-holding UI. Physically inspect photographs, cross-reference medical records, and rewind VHS tapes to piece together the timeline and unlock sealed wings of the estate.</p>
+                    <h3>Study the Imperfections</h3>
+                    <p>They are convincing, but never flawless. A shirt buttoned wrong, a mole on the wrong cheek, a sudden inability to recall a conversation from yesterday, or a reflection that moves a fraction of a second too late. The truth hides in the details they failed to memorize.</p>
                 </div>
             </div>
 
             <div class="pillar-item">
                 <div class="pillar-num">II.</div>
                 <div>
-                    <h3>Acoustic Survival</h3>
-                    <p>You cannot fight what haunts these halls. Listen closely to binaural 3D audio cues—creaking timber, distant breathing, and shifting debris—to anticipate movement and stay out of sight.</p>
+                    <h3>Question Without Alerting</h3>
+                    <p>Do not let them know you suspect them. Weave trap questions into casual conversation—ask about shared memories only the real student would know. If their eyes dart away or they repeat your question back to you, slowly step toward the door.</p>
                 </div>
             </div>
 
             <div class="pillar-item">
                 <div class="pillar-num">III.</div>
                 <div>
-                    <h3>A Shifting Reality</h3>
-                    <p>The environment reacts to your discoveries. Doors you just walked through may lead somewhere entirely different when you turn around, blurring the line between the manor's architecture and your own fracturing mind.</p>
+                    <h3>Survive the Blackout</h3>
+                    <p>When the auxiliary generator fails at midnight, paranoia turns physical. You will have to choose who to trust, who to interrogate, and who to lock out in the hallway. Make the wrong call, and you will be locking yourself inside with it.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BÖLÜM 3: PROJE KÜNYESİ (BOZUK RESİMLER YERİNE ŞIK BİLGİ KUTULARI) -->
-    <section id="status" class="split-section">
+    <!-- BÖLÜM 3: ODADAKİ ANOMALİLER (Merak uyandıran ipuçları) -->
+    <section id="anomalies" class="split-section">
         <div class="sticky-header">
-            <span class="eyebrow">03 / Dossier</span>
-            <h2>Project Overview</h2>
-            <p>Current development specifications.</p>
+            <span class="eyebrow">03 / Anomalies</span>
+            <h2>Logged Discrepancies</h2>
+            <p>Things that do not add up in Room 409.</p>
         </div>
 
         <div>
             <div class="specs-grid">
                 <div class="spec-box">
-                    <span class="spec-label">Genre</span>
-                    <div class="spec-value">Psychological Horror / Exploration</div>
+                    <span class="spec-label">Discrepancy #01</span>
+                    <div class="spec-value">The Lobby Sign-In Sheet</div>
+                    <p class="spec-desc">Everyone is sitting in the room with you right now. However, the security log downstairs shows one of your roommates signed out at 6:00 PM and never returned to the building.</p>
                 </div>
                 <div class="spec-box">
-                    <span class="spec-label">Perspective</span>
-                    <div class="spec-value">First-Person (VHS Camcorder)</div>
+                    <span class="spec-label">Discrepancy #02</span>
+                    <div class="spec-value">Fogged Bathroom Mirror</div>
+                    <p class="spec-desc">Someone left the hot water running. Beneath the condensation on the glass, a frantic message was traced from the inside: "IT HAS MY VOICE."</p>
                 </div>
                 <div class="spec-box">
-                    <span class="spec-label">Platform</span>
-                    <div class="spec-value">PC (Windows via itch.io)</div>
+                    <span class="spec-label">Discrepancy #03</span>
+                    <div class="spec-value">The Duplicate Key</div>
+                    <p class="spec-desc">An extra brass key stamped with '409' was found under the study desk, covered in damp soil. All three roommates still have their keys on their lanyards.</p>
                 </div>
                 <div class="spec-box">
-                    <span class="spec-label">Current Build</span>
-                    <div class="spec-value">Pre-Alpha — Demo in Progress</div>
+                    <span class="spec-label">Discrepancy #04</span>
+                    <div class="spec-value">The Locked Wardrobe</div>
+                    <p class="spec-desc">Faint, desperate scratching sounds are coming from inside the heavy oak wardrobe in the corner—even though all of your roommates are standing right behind you.</p>
                 </div>
             </div>
 
             <div class="evidence-card" style="margin-bottom: 0;">
-                <span class="evidence-meta">Developer Note</span>
-                <blockquote>"We are keeping visual media under wraps until the playable demo is ready. Expect your first step inside Blackwood Manor soon on itch.io."</blockquote>
+                <span class="evidence-meta">Campus Security Broadcast — Final Transmission</span>
+                <blockquote>"Do not open your doors for anyone claiming to be campus police. Do not look through the peephole if the hallway light is flickering. Stay awake until sunrise."</blockquote>
             </div>
         </div>
     </section>
@@ -517,13 +530,13 @@
     <!-- BÖLÜM 4: STÜDYO VE TOPLULUK -->
     <section id="community" class="studio-banner">
         <div class="studio-inner">
-            <span class="eyebrow">Independent Development</span>
-            <h2>Follow the Journey</h2>
-            <p>Dark Secret is currently in active development. A playable demo will be released soon on itch.io. Follow our official channels for development logs, sound design previews, and release announcements.</p>
+            <span class="eyebrow">Curfew Begins Soon</span>
+            <h2>Will You Know the Difference?</h2>
+            <p>The first playable night is being prepared. Follow our official channels to be notified the exact moment the demo unlocks on itch.io.</p>
             
             <div class="community-links">
                 <a href="#" class="outline-btn">itch.io (Demo Soon)</a>
-                <a href="#" class="outline-btn">Discord Server</a>
+                <a href="#" class="outline-btn">Discord</a>
                 <a href="#" class="outline-btn">Twitter / X</a>
                 <a href="#" class="outline-btn">YouTube</a>
             </div>
@@ -533,7 +546,7 @@
     <!-- FOOTER -->
     <footer>
         <div>&copy; 2026 Gwyllsumu Games. All rights reserved.</div>
-        <div>Playable demo coming soon to itch.io</div>
+        <div>Playable demo arriving soon on itch.io</div>
     </footer>
 
 </body>
