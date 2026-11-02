@@ -1,59 +1,75 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google'dan ürkütücü fontları çekiyoruz -->
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-    <title>Karanlık Sır - Korku Oyunu</title>
+    <!-- Google Fonts: Creepster (Main Title), Cinzel (Headings), Roboto (Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Creepster&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Dark Secret - A Psychological Horror Experience</title>
     
     <style>
-        /* GENEL AYARLAR */
+        /* GENERAL SETTINGS */
         body {
-            background-color: #050505; /* Neredeyse tam siyah */
-            color: #d4d4d4; /* Göz yormayan gri/beyaz metin */
+            background-color: #030303; /* Deepest black */
+            color: #e0e0e0; /* Off-white for high readability */
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
-            font-family: 'Creepster', cursive; /* Korku temalı yazı tipi */
-            color: #8a0303; /* Kan kırmızısı */
+        /* TYPOGRAPHY */
+        h1 {
+            font-family: 'Creepster', cursive;
+            color: #9e0b0b; /* Blood red */
             font-weight: normal;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             margin: 0;
         }
 
-        /* IŞIK TİTREME (FLICKER) EFEKTİ */
-        @keyframes flicker {
-            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; text-shadow: 0 0 10px #ff0000; }
-            20%, 22%, 24%, 55% { opacity: 0.2; text-shadow: none; }
-        }
-        .flicker {
-            animation: flicker 4s infinite;
+        h2, h3 {
+            font-family: 'Cinzel', serif; /* Clean, elegant but dark vibe for readability */
+            color: #ffffff;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 1px;
         }
 
-        /* ÜST KISIM (HERO SECTION) */
+        p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-weight: 300;
+            color: #cccccc; /* Soft grey to reduce eye strain */
+        }
+
+        /* FLICKER EFFECT FOR MAIN TITLE */
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; text-shadow: 0 0 15px rgba(158, 11, 11, 0.6); }
+            20%, 22%, 24%, 55% { opacity: 0.4; text-shadow: none; }
+        }
+        .flicker {
+            animation: flicker 5s infinite;
+        }
+
+        /* HERO SECTION */
         header {
             position: relative;
-            height: 100vh; /* Tüm ekranı kapla */
+            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Arka plana geçici bir korku görseli ekledik, kendi oyun görselinle değiştirebilirsin */
+            /* Placeholder background image */
             background: url('https://images.unsplash.com/photo-1505635552518-3448ff116af3?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
         }
 
-        /* Arka planı karartma katmanı */
         header::after {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.75);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(3,3,3,1) 100%);
             z-index: 1;
         }
 
@@ -61,151 +77,188 @@
             position: relative;
             z-index: 2;
             padding: 20px;
+            max-width: 800px;
         }
 
         header h1 {
-            font-size: 5rem;
+            font-size: 6rem;
             margin-bottom: 10px;
             text-transform: uppercase;
         }
 
-        header p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 30px auto;
-            line-height: 1.6;
+        header .tagline {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #a3a3a3;
+            margin-bottom: 40px;
         }
 
-        /* BUTON TASARIMI */
+        /* BUTTON DESIGN */
         .btn {
             display: inline-block;
-            padding: 15px 40px;
-            background-color: #5c0000;
-            color: #fff;
+            padding: 16px 45px;
+            background-color: transparent;
+            color: #ffffff;
             text-decoration: none;
-            font-family: 'Creepster', cursive;
-            font-size: 1.8rem;
-            border: 2px solid #8a0303;
-            border-radius: 5px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: 2px solid #9e0b0b;
+            border-radius: 3px;
             transition: all 0.3s ease;
             cursor: pointer;
-            box-shadow: 0 0 10px rgba(138, 3, 3, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .btn:hover {
-            background-color: #8a0303;
-            box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
-            transform: scale(1.05);
+            background-color: #9e0b0b;
+            box-shadow: 0 0 20px rgba(158, 11, 11, 0.5);
         }
 
-        /* İÇERİK BÖLÜMLERİ */
+        /* CONTENT SECTIONS */
         section {
-            padding: 80px 20px;
-            max-width: 1000px;
+            padding: 100px 20px;
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
         }
 
         section h2 {
-            font-size: 3.5rem;
-            margin-bottom: 30px;
-            border-bottom: 1px solid #330000;
-            padding-bottom: 10px;
-            display: inline-block;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            color: #9e0b0b;
         }
 
-        section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
-        /* ÖZELLİKLER (GRID YAPISI) */
+        /* FEATURES (GRID STRUCTURE) */
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
         }
 
         .feature-box {
-            background: #111;
-            padding: 30px;
-            border: 1px solid #222;
-            border-top: 3px solid #8a0303;
-            transition: 0.3s;
+            background: #0a0a0a;
+            padding: 40px 30px;
+            border: 1px solid #1a1a1a;
+            border-top: 3px solid #9e0b0b;
+            text-align: left;
+            transition: transform 0.3s;
         }
 
         .feature-box:hover {
-            background: #1a1a1a;
             transform: translateY(-5px);
+            border-color: #333;
         }
 
         .feature-box h3 {
-            font-size: 2rem;
+            font-size: 1.6rem;
             margin-bottom: 15px;
         }
 
-        /* ALT KISIM (FOOTER) */
+        .feature-box p {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        /* COMMUNITY / STUDIO SECTION */
+        .community-section {
+            background-color: #080808;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            color: #a3a3a3;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            border-bottom: 1px solid transparent;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #ffffff;
+            border-bottom: 1px solid #9e0b0b;
+        }
+
+        /* FOOTER */
         footer {
-            background: #000;
-            padding: 30px;
+            background: #030303;
+            padding: 40px 20px;
             text-align: center;
-            border-top: 1px solid #222;
             font-size: 0.9rem;
-            color: #666;
+            color: #555;
+        }
+
+        footer span {
+            color: #9e0b0b;
         }
     </style>
 </head>
 <body>
 
-    <!-- GİRİŞ EKRANI -->
+    <!-- HERO SECTION -->
     <header>
         <div class="header-content">
-            <h1 class="flicker">KARANLIK SIR</h1>
-            <p>Geçmişin hayaletleri uyanıyor. Terk edilmiş akıl hastanesinin sırlarını çözmeye ve hayatta kalmaya hazır mısın? Işıklarını kapa, kulaklığını tak ve kabusa adım at.</p>
-            <a href="#indir" class="btn">Oyunu İndir</a>
+            <h1 class="flicker">DARK SECRET</h1>
+            <p class="tagline">Some doors are better left unopened.</p>
+            <!-- Bu butona Steam sayfanın linkini veya Discord davetini ekleyebilirsin -->
+            <a href="#community" class="btn">Wishlist Now</a>
         </div>
     </header>
 
-    <!-- HİKAYE BÖLÜMÜ -->
-    <section id="hikaye">
-        <h2>Hikaye</h2>
-        <p>Yıl 1994. Yıllar önce gizemli bir yangınla kül olan Blackwood Akıl Hastanesi, yerel halk tarafından lanetli kabul ediliyor. Sen, kaybolan kardeşini bulmak için ipuçlarını takip eden bir gazetecisin.</p>
-        <p>Ancak içeri adım attığında, yalnız olmadığını fark edeceksin. Koridorlarda yankılanan fısıltılar, mantığının sınırlarını zorlayacak. Kardeşini bulmak için kendi korkularınla yüzleşmelisin.</p>
+    <!-- THE LORE SECTION -->
+    <section id="story">
+        <h2>The Nightmare Begins</h2>
+        <p>Set in the autumn of 1994, Blackwood Manor has stood abandoned since the tragic fire that claimed the lives of its final residents. You are an investigative journalist following a cryptic trail of letters left by your missing sister.</p>
+        <p>As you step into the decaying halls, you realize you are not alone. The whispers echoing through the corridors will push your sanity to the brink. To find the truth, you must first survive the dark.</p>
     </section>
 
-    <!-- OYUN ÖZELLİKLERİ BÖLÜMÜ -->
-    <section id="ozellikler" style="background-color: #0a0a0a;">
-        <h2>Neden Oynamalısın?</h2>
+    <!-- GAMEPLAY FEATURES SECTION -->
+    <section id="features">
+        <h2>Experience the Horror</h2>
         <div class="features">
             <div class="feature-box">
-                <h3>Boğucu Atmosfer</h3>
-                <p>Gelişmiş ses tasarımı ve dinamik ışıklandırma ile her adımda ensende bir nefes hissedeceksin.</p>
+                <h3>Oppressive Atmosphere</h3>
+                <p>Designed with advanced spatial audio and dynamic lighting to ensure you feel a constant, suffocating dread with every step you take.</p>
             </div>
             <div class="feature-box">
-                <h3>Zorlu Bulmacalar</h3>
-                <p>Hastalar tarafından bırakılan gizli notları oku, şifreleri çöz ve kapalı kapıların ardındaki gerçeğe ulaş.</p>
+                <h3>Intricate Puzzles</h3>
+                <p>Examine forgotten notes, decipher cryptic symbols, and unlock the hidden passages of the manor to uncover the grim reality.</p>
             </div>
             <div class="feature-box">
-                <h3>Kaç ya da Saklan</h3>
-                <p>Silahın yok. Düşmanlarından kurtulmanın tek yolu zekanı kullanmak, gölgelere saklanmak ve sessiz olmak.</p>
+                <h3>Evade and Survive</h3>
+                <p>You have no weapons. Your only options against the lurking entities are your wits, the shadows, and absolute silence.</p>
             </div>
         </div>
     </section>
 
-    <!-- İNDİRME / İLETİŞİM BÖLÜMÜ -->
-    <section id="indir">
-        <h2 class="flicker">Kabusa Katıl</h2>
-        <p>Oyunumuz şu an geliştirme aşamasındadır (Alpha v0.1). Erken erişim sürümünü indirerek test edebilir ve geri bildirimde bulunabilirsiniz.</p>
-        <br>
-        <a href="#" class="btn">Şimdi İndir (Windows)</a>
+    <!-- COMMUNITY & STUDIO SECTION -->
+    <section id="community" class="community-section">
+        <h2>Follow the Development</h2>
+        <p>We are a small, passionate indie studio pouring our nightmares into this project. The game is currently in active development. Support us by joining our community and adding the game to your wishlist.</p>
+        
+        <div class="social-links">
+            <a href="#">Steam Page</a>
+            <a href="#">Join our Discord</a>
+            <a href="#">Twitter / X</a>
+            <a href="#">Press Kit</a>
+        </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Karanlık Sır. Tüm hakları saklıdır.</p>
-        <p>Geliştirici: Senin Adın / Stüdyon</p>
+        <p>&copy; 2026 Dark Secret. All rights reserved.</p>
+        <p>Developed by <span>Your Studio Name</span></p>
     </footer>
 
 </body>
