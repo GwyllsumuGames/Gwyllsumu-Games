@@ -10,13 +10,13 @@
     <style>
         /* TEMEL RENKLER VE AYARLAR */
         :root {
-            --bg-main: #070709;       /* Derin gece siyahı */
-            --bg-secondary: #0d0d11;  /* Bölüm ayrımı için çok hafif açık siyah */
+            --bg-main: #060608;       /* Derin gece siyahı */
+            --bg-secondary: #0c0c10;  /* Bölüm ayrımı için çok hafif açık siyah */
             --text-bright: #f4f4f6;   /* Çok net okunan başlık beyazı */
             --text-body: #d1d1d6;     /* Yüksek kontrastlı, rahat okunan gövde metni */
             --text-muted: #8e8e93;    /* Alt bilgiler için açık gri */
             --crimson: #b91c1c;       /* Zarif kan kırmızısı vurgu */
-            --border-subtle: #1f1f26; /* İnce, şık çerçeve rengi */
+            --border-subtle: #1c1c24; /* İnce, şık çerçeve rengi */
         }
 
         * {
@@ -51,7 +51,7 @@
             position: fixed;
             top: 0; left: 0; right: 0;
             height: 75px;
-            background: rgba(7, 7, 9, 0.85);
+            background: rgba(6, 6, 8, 0.85);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-subtle);
             display: flex;
@@ -99,7 +99,7 @@
             padding: 8px 16px;
             border: 1px solid var(--border-subtle);
             color: var(--text-muted);
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.02);
             font-size: 0.8rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
@@ -122,11 +122,11 @@
 
         @keyframes pulse {
             0% { opacity: 1; }
-            50% { opacity: 0.3; }
+            50% { opacity: 0.25; }
             100% { opacity: 1; }
         }
 
-        /* GİRİŞ EKRANI (HERO) - Geçici Karanlık Korku Görseli */
+        /* GİRİŞ EKRANI (HERO) - Resimsiz, Saf Atmosferik Işıklandırma */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -135,9 +135,10 @@
             text-align: center;
             padding: 120px 20px 80px;
             position: relative;
+            /* Dışarıdan bozuk resim çekmek yerine CSS ile karanlık kırmızı sis efekti */
             background: 
-                radial-gradient(circle at center, rgba(185, 28, 28, 0.08) 0%, rgba(7, 7, 9, 0.95) 75%),
-                url('https://images.unsplash.com/photo-1509114397022-ed747cca3f65?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+                radial-gradient(circle at 50% 35%, rgba(185, 28, 28, 0.14) 0%, rgba(6, 6, 8, 0) 60%),
+                radial-gradient(circle at 50% 80%, rgba(25, 25, 35, 0.4) 0%, rgba(6, 6, 8, 1) 70%);
             border-bottom: 1px solid var(--border-subtle);
         }
 
@@ -161,6 +162,7 @@
             line-height: 1;
             margin-bottom: 25px;
             text-transform: uppercase;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
         }
 
         .hero-quote {
@@ -177,7 +179,7 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            background-color: rgba(185, 28, 28, 0.12);
+            background-color: rgba(185, 28, 28, 0.1);
             border: 1px solid var(--crimson);
             color: var(--text-bright);
             padding: 16px 38px;
@@ -186,7 +188,6 @@
             letter-spacing: 2.5px;
             text-transform: uppercase;
             border-radius: 2px;
-            cursor: default;
         }
 
         /* SOLU SABİT, SAĞI AKAN BÖLÜM */
@@ -290,61 +291,33 @@
             color: var(--text-body);
         }
 
-        /* GÖRSEL VİTRİN (GEÇİCİ KORKU RESİMLERİ) */
-        .showcase-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 120px 6vw;
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .showcase-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 50px;
-        }
-
-        .showcase-header h2 {
-            font-size: 3rem;
-        }
-
-        .gallery-grid {
+        /* YENİ BÖLÜM: RESİMSİZ PROJE KÜNYESİ VE GELİŞTİRME DURUMU */
+        .specs-grid {
             display: grid;
-            grid-template-columns: 1.4fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 25px;
         }
 
-        .gallery-item {
-            position: relative;
-            background: var(--bg-secondary);
+        .spec-box {
+            background-color: var(--bg-secondary);
             border: 1px solid var(--border-subtle);
-            overflow: hidden;
+            padding: 28px;
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            min-height: 320px;
-            object-fit: cover;
-            display: block;
-            filter: contrast(1.05) brightness(0.85);
-            transition: transform 0.5s ease, filter 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.03);
-            filter: contrast(1.1) brightness(1);
-        }
-
-        .caption {
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            padding: 15px 20px;
-            background: linear-gradient(to top, rgba(7,7,9,0.95), transparent);
-            font-size: 0.85rem;
+        .spec-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             color: var(--text-muted);
-            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .spec-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--text-bright);
+            font-weight: 600;
         }
 
         /* STÜDYO VE TOPLULUK BÖLÜMÜ */
@@ -409,7 +382,7 @@
             .sticky-header {
                 position: static;
             }
-            .gallery-grid {
+            .specs-grid {
                 grid-template-columns: 1fr;
             }
             .nav-links a {
@@ -427,11 +400,11 @@
 
     <!-- ÜST MENÜ -->
     <nav>
-        <a href="#" class="studio-logo">YOUR<span>STUDIO</span></a>
+        <a href="#" class="studio-logo">GWYLLSUMU<span>GAMES</span></a>
         <div class="nav-links">
             <a href="#story">The Story</a>
             <a href="#gameplay">Gameplay</a>
-            <a href="#media">Visuals</a>
+            <a href="#status">Overview</a>
             <div class="nav-status">
                 <span class="pulse-dot"></span> itch.io Demo Soon
             </div>
@@ -443,9 +416,8 @@
         <div class="hero-inner">
             <span class="eyebrow">A First-Person Psychological Horror</span>
             <h1>DARK SECRET</h1>
-            <p class="hero-quote">"We thought the fire buried the truth. It only kept it warm."</p>
+            <p class="hero-quote">"To document the monster, you must first let it sit at your table."</p>
             
-            <!-- İSTEDİĞİN ITCH.IO DEMO ROZETİ -->
             <div class="demo-badge">
                 <span class="pulse-dot"></span> itch.io Demo Soon
             </div>
@@ -507,24 +479,37 @@
         </div>
     </section>
 
-    <!-- BÖLÜM 3: GÖRSELLER (ŞİMDİLİK GEÇİCİ KORKU RESİMLERİ) -->
-    <section id="media" class="showcase-section">
-        <div class="showcase-header">
-            <div>
-                <span class="eyebrow">03 / Captures</span>
-                <h2>Inside the Estate</h2>
-            </div>
-            <span style="color: var(--text-muted); font-size: 0.9rem;">Captured in-engine (Work in Progress)</span>
+    <!-- BÖLÜM 3: PROJE KÜNYESİ (BOZUK RESİMLER YERİNE ŞIK BİLGİ KUTULARI) -->
+    <section id="status" class="split-section">
+        <div class="sticky-header">
+            <span class="eyebrow">03 / Dossier</span>
+            <h2>Project Overview</h2>
+            <p>Current development specifications.</p>
         </div>
 
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?q=80&w=1600&auto=format&fit=crop" alt="Dark hallway">
-                <div class="caption">FIG 1.1 — The East Wing Corridor</div>
+        <div>
+            <div class="specs-grid">
+                <div class="spec-box">
+                    <span class="spec-label">Genre</span>
+                    <div class="spec-value">Psychological Horror / Exploration</div>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">Perspective</span>
+                    <div class="spec-value">First-Person (VHS Camcorder)</div>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">Platform</span>
+                    <div class="spec-value">PC (Windows via itch.io)</div>
+                </div>
+                <div class="spec-box">
+                    <span class="spec-label">Current Build</span>
+                    <div class="spec-value">Pre-Alpha — Demo in Progress</div>
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1519074069444-1ba4ea16e66c?q=80&w=1200&auto=format&fit=crop" alt="Abandoned room">
-                <div class="caption">FIG 1.2 — The Archivist's Study</div>
+
+            <div class="evidence-card" style="margin-bottom: 0;">
+                <span class="evidence-meta">Developer Note</span>
+                <blockquote>"We are keeping visual media under wraps until the playable demo is ready. Expect your first step inside Blackwood Manor soon on itch.io."</blockquote>
             </div>
         </div>
     </section>
