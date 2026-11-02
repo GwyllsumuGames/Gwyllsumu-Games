@@ -128,7 +128,7 @@
             padding-left: 6px;
         }
 
-        /* SOL SÜTUNDAKİ CANLI ODA YOKLAMA LİSTESİ (Korku detayı) */
+        /* SOL SÜTUNDAKİ LAPTOP TERMİNAL DURUMU */
         .roster-widget {
             background: var(--bg-card);
             border: 1px solid var(--border-line);
@@ -156,12 +156,12 @@
         .status-error { 
             color: var(--crimson); 
             font-weight: 600;
-            animation: blink 2.5s infinite;
+            animation: blink 2.2s infinite;
         }
 
         @keyframes blink {
             0%, 100% { opacity: 1; }
-            50% { opacity: 0.35; }
+            50% { opacity: 0.3; }
         }
 
         /* SOL ALT ITCH.IO DURUM ROZETİ */
@@ -201,7 +201,7 @@
             flex-direction: column;
         }
 
-        /* ÜST BİLGİ ŞERİDİ (TOP TICKER) */
+        /* ÜST BİLGİ ŞERİDİ */
         .top-bar {
             height: 54px;
             border-bottom: 1px solid var(--border-line);
@@ -242,7 +242,7 @@
             font-style: italic;
             font-size: 1.75rem;
             color: var(--text-bright);
-            max-width: 720px;
+            max-width: 760px;
             line-height: 1.45;
             margin-bottom: 40px;
             padding-left: 22px;
@@ -250,7 +250,7 @@
         }
 
         .hero-sub {
-            max-width: 640px;
+            max-width: 660px;
             color: var(--text-body);
             font-size: 1.08rem;
             margin-bottom: 0;
@@ -288,7 +288,7 @@
             line-height: 1.15;
         }
 
-        /* TRANSKRİPT KARTI */
+        /* EKRAN MESAJI KARTI */
         .tape-log {
             background: var(--bg-card);
             border: 1px solid var(--border-line);
@@ -314,14 +314,14 @@
             line-height: 1.55;
         }
 
-        /* İNTERAKTİF ŞÜPHELİ / ODA ARKADAŞI DOSYASI (BÖLÜM 2 - Sıradışı Özellik) */
+        /* İNTERAKTİF LAPTOP & KAPI SORGUSU SİMÜLASYONU (BÖLÜM 2) */
         .interactive-dossier {
             padding: 80px 60px;
             border-bottom: 1px solid var(--border-line);
         }
 
         .dossier-header {
-            max-width: 650px;
+            max-width: 680px;
             margin-bottom: 40px;
         }
 
@@ -339,7 +339,7 @@
 
         .tab-btn {
             flex: 1;
-            min-width: 160px;
+            min-width: 180px;
             background: transparent;
             border: none;
             border-right: 1px solid var(--border-line);
@@ -375,56 +375,76 @@
             border: 1px solid var(--border-line);
             border-top: none;
             padding: 45px;
-            grid-template-columns: 1fr 1.8fr;
+            grid-template-columns: 1fr 1.6fr;
             gap: 45px;
-            align-items: center;
+            align-items: start;
         }
 
         .tab-panel.active {
             display: grid;
         }
 
+        /* SOL TARAF: LAPTOP EKRANI KAYDI */
         .subject-card {
-            border-right: 1px solid var(--border-line);
-            padding-right: 35px;
+            background: #09090d;
+            border: 1px solid var(--border-line);
+            padding: 28px;
         }
 
         .subject-card h3 {
-            font-size: 2.2rem;
-            margin-bottom: 8px;
+            font-size: 2rem;
+            margin: 6px 0 15px 0;
         }
+
+        .db-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            padding: 8px 0;
+            border-bottom: 1px solid #181820;
+        }
+
+        .db-label { color: var(--text-muted); }
+        .db-val { color: var(--text-bright); font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
 
         .subject-status {
             display: inline-block;
-            padding: 4px 10px;
+            width: 100%;
+            text-align: center;
+            padding: 8px 10px;
             background: var(--crimson-dim);
             border: 1px solid var(--crimson);
             color: var(--text-bright);
-            margin-top: 12px;
+            margin-top: 18px;
         }
 
+        /* SAĞ TARAF: KAPI ARKASI SORGU NOTLARI */
         .subject-notes p {
             margin-top: 0;
             font-size: 1.08rem;
+            font-style: italic;
+            color: var(--text-bright);
+            background: rgba(255,255,255,0.02);
+            padding: 16px 20px;
+            border-left: 2px solid var(--text-muted);
         }
 
         .anomaly-list {
             list-style: none;
             padding: 0;
-            margin: 20px 0 0 0;
-            border-top: 1px solid var(--border-line);
-            padding-top: 18px;
+            margin: 25px 0 0 0;
         }
 
         .anomaly-list li {
-            margin-bottom: 10px;
+            margin-bottom: 14px;
             font-size: 0.98rem;
-            color: var(--text-bright);
+            color: var(--text-body);
         }
 
         .anomaly-list li span {
             color: var(--crimson);
             font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
             margin-right: 10px;
         }
 
@@ -535,13 +555,9 @@
             .bento-grid, .rules-grid, .tab-panel.active {
                 grid-template-columns: 1fr;
             }
-            .bento-cell, .rule-col, .subject-card {
+            .bento-cell, .rule-col {
                 border-right: none;
                 border-bottom: 1px solid var(--border-line);
-            }
-            .subject-card {
-                padding-right: 0;
-                padding-bottom: 25px;
             }
             .hero-box, .bento-cell, .interactive-dossier, .studio-section {
                 padding: 50px 28px;
@@ -560,7 +576,7 @@
 
     <div class="app-shell">
         
-        <!-- SOL SABİT PANEL: GWYLLSUMU GAMES & YOKLAMA LİSTESİ -->
+        <!-- SOL SABİT PANEL: GWYLLSUMU GAMES & LAPTOP DURUMU -->
         <aside class="sidebar">
             <div>
                 <div class="brand-block">
@@ -569,31 +585,31 @@
                 </div>
 
                 <nav class="side-nav">
-                    <a href="#premise"><span>01. Roll Call</span> <span>→</span></a>
-                    <a href="#inspection"><span>02. Occupants</span> <span>→</span></a>
-                    <a href="#curfew"><span>03. Curfew Protocol</span> <span>→</span></a>
+                    <a href="#premise"><span>01. Night Shift</span> <span>→</span></a>
+                    <a href="#interrogation"><span>02. Door Logs</span> <span>→</span></a>
+                    <a href="#protocol"><span>03. Verification</span> <span>→</span></a>
                     <a href="#studio"><span>04. Transmission</span> <span>→</span></a>
                 </nav>
             </div>
 
-            <!-- OYUNUN TEMASINI YAŞATAN CANLI ODA YOKLAMA KUTUSU -->
+            <!-- OYUNUN LAPTOP VE KAPI MEKANİĞİNİ YANSITAN CANLI KUTU -->
             <div class="roster-widget">
-                <span class="mono roster-title">Room 409 // Night Roster</span>
+                <span class="mono roster-title">Laptop Terminal // v2.04</span>
                 <div class="roster-row">
-                    <span>Bed A (Julian)</span>
-                    <span class="mono status-ok">In Room</span>
+                    <span>Student Database</span>
+                    <span class="mono status-ok">ONLINE</span>
                 </div>
                 <div class="roster-row">
-                    <span>Bed B (Marcus)</span>
-                    <span class="mono status-ok">In Room</span>
+                    <span>Keycard Registry</span>
+                    <span class="mono status-ok">SYNCED</span>
                 </div>
                 <div class="roster-row">
-                    <span>Bed C (You)</span>
-                    <span class="mono status-ok">Awake</span>
+                    <span>Hallway Lock</span>
+                    <span class="mono status-ok">ENGAGED</span>
                 </div>
                 <div class="roster-row" style="margin-top: 8px; border-top: 1px dashed #272732; padding-top: 8px;">
-                    <span>Lobby Sign-Out Log</span>
-                    <span class="mono status-error">1 ABSENTEE</span>
+                    <span>Door Sensor</span>
+                    <span class="mono status-error">KNOCK DETECTED</span>
                 </div>
             </div>
 
@@ -609,136 +625,169 @@
             
             <!-- ÜST DURUM ŞERİDİ -->
             <div class="top-bar mono">
-                <span>DORM BLOCK C // 4TH FLOOR LOCKDOWN</span>
-                <span> HEADCOUNT DISCREPANCY DETECTED</span>
+                <span>ST. JUDE DORMITORY // NIGHT DESK TERMINAL</span>
+                <span> DO NOT UNBOLT THE DOOR WITHOUT DATABASE VERIFICATION</span>
             </div>
 
             <!-- GİRİŞ BÖLÜMÜ (HERO) -->
             <section class="hero-box">
-                <span class="mono hero-meta">An Interactive Paranoia Experience by Gwyllsumu Games</span>
+                <span class="mono hero-meta">A Psychological Interrogation Horror by Gwyllsumu Games</span>
                 <h1>THE ABSENTEE</h1>
                 <p class="hero-lead">
-                    "The front desk ledger says one of your roommates signed out of the dormitory at 6:00 PM and never came back. Then who is sleeping in his bed right now?"
+                    "Someone is knocking on the dormitory door, begging to be let in from the fog. They have your friend's face and student ID. But according to your laptop, your friend is already asleep down the hall."
                 </p>
                 <p class="hero-sub">
-                    A thick winter fog has sealed St. Jude’s Dormitory. All three of your roommates are sitting inside Room 409 with you. They know your name, they wear your friends' clothes, and they share your memories. But one of them is an Absentee—something that walked in from the fog to fill an empty place.
+                    It is 2:00 AM during a campus-wide lockdown. You are stationed behind a reinforced dormitory door with only a peephole, an intercom, and a laptop connected to the university's student records. Late-night stragglers are arriving at your door—and things wearing their faces are walking right behind them.
                 </p>
             </section>
 
             <!-- BÖLÜM 1: BENTO IZGARA HİKAYE VE KANIT -->
             <section id="premise" class="bento-grid">
                 <div class="bento-cell">
-                    <span class="mono section-tag">01 // The Discrepancy</span>
-                    <h2>Count the Breathing Before You Close Your Eyes</h2>
+                    <span class="mono section-tag">01 // The Screen & The Peephole</span>
+                    <h2>Cross-Reference Every Word Before You Turn the Lock</h2>
                     <p>
-                        When the campus power grid fails at midnight, the dormitory doors lock automatically until dawn. You are trapped in a forty-square-meter room with people you thought you knew.
+                        Between the hallway and safety stands a single steel door. Whenever footsteps stop outside, your routine is the same: look through the lens, speak through the grate, and search their name on your laptop.
                     </p>
                     <p style="margin-bottom: 0;">
-                        The mimic does not attack when everyone is looking. It waits for you to trust it. It learns human habits in real time—adjusting its posture, copying vocal tics, and rehearsing answers. To survive the night, you must uncover who actually left the building before curfew, and confront the thing wearing their face.
+                        Dig through class schedules, campus keycard swipes, medical files, and emergency emails. The doppelgängers outside know how to plead, lie, and imitate voices—but they cannot rewrite the digital trail left on your screen. Catch them in a lie before you slide the bolt back.
                     </p>
                 </div>
 
                 <div class="bento-cell">
                     <div class="tape-log">
                         <div class="tape-header mono">
-                            <span>Voicemail #09</span>
-                            <span>Received 23:42</span>
+                            <span>Campus Admin Alert</span>
+                            <span>Priority: CRITICAL</span>
                         </div>
                         <blockquote>
-                            "Don't let them know you're checking the lobby book. I'm calling you from the payphone across the street. I couldn't make it back before the fog hit. Whatever is sitting at my desk right now... do not let it borrow my key."
+                            "If a resident claims they lost their ID card, check their last cafeteria swipe on your laptop. If the timestamp conflicts with their story, step away from the peephole and engage the deadbolt immediately."
                         </blockquote>
                     </div>
                 </div>
             </section>
 
-            <!-- BÖLÜM 2: İNTERAKTİF ŞÜPHELİ / ODA ARKADAŞI DOSYASI (Tıklanabilir Sekmeler) -->
-            <section id="inspection" class="interactive-dossier">
+            <!-- BÖLÜM 2: İNTERAKTİF LAPTOP & KAPI SORGUSU SİMÜLASYONU -->
+            <section id="interrogation" class="interactive-dossier">
                 <div class="dossier-header">
-                    <span class="mono section-tag">02 // Occupant Inspection</span>
-                    <h2>Examine the Roommates</h2>
+                    <span class="mono section-tag">02 // Case Simulation</span>
+                    <h2>Interrogate at the Threshold</h2>
                     <p style="margin: 0; color: var(--text-muted);">
-                        Click through the room logs below. Every occupant claims they never left the fourth floor tonight. Look closer at what doesn't match.
+                        Click through tonight's encounters below. Compare the data on your laptop screen (left) with what the person outside your door is claiming (right).
                     </p>
                 </div>
 
                 <!-- SEKMELER -->
                 <div class="tabs-bar">
-                    <button class="tab-btn active" onclick="openFile(event, 'bunk1')">[File 01] Bed A — Julian</button>
-                    <button class="tab-btn" onclick="openFile(event, 'bunk2')">[File 02] Bed B — Marcus</button>
-                    <button class="tab-btn" onclick="openFile(event, 'bunk3')">[File 03] Bathroom Mirror</button>
+                    <button class="tab-btn active" onclick="openFile(event, 'knock1')">[01:15 AM] Knock #01 — Elena R.</button>
+                    <button class="tab-btn" onclick="openFile(event, 'knock2')">[02:40 AM] Knock #02 — David M.</button>
+                    <button class="tab-btn" onclick="openFile(event, 'knock3')">[03:55 AM] Knock #03 — Unknown</button>
                 </div>
 
                 <!-- SEKME 1 İÇERİĞİ -->
-                <div id="bunk1" class="tab-panel active">
+                <div id="knock1" class="tab-panel active">
                     <div class="subject-card">
-                        <span class="mono" style="color: var(--text-muted);">Occupant #01</span>
-                        <h3>Julian V.</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin: 4px 0 0 0;">Literature Major // Top Bunk</p>
-                        <span class="mono subject-status">Alibi: Studying all evening</span>
+                        <span class="mono" style="color: var(--crimson);">LAPTOP DATABASE RECORD</span>
+                        <h3>Elena Rostova</h3>
+                        <div class="db-row">
+                            <span class="db-label">Assigned Room</span>
+                            <span class="db-val">Room 404</span>
+                        </div>
+                        <div class="db-row">
+                            <span class="db-label">Last Keycard Swipe</span>
+                            <span class="db-val">21:10 (Entered Dorm)</span>
+                        </div>
+                        <div class="db-row">
+                            <span class="db-label">Registered Eye Color</span>
+                            <span class="db-val">Green</span>
+                        </div>
+                        <span class="mono subject-status">DB Status: Already Inside Building</span>
                     </div>
                     <div class="subject-notes">
-                        <p>Julian hasn't looked up from his textbook for two hours. He answers when spoken to, and his voice sounds completely normal.</p>
+                        <p>"Please open up, it's freezing out here! I was stuck at the chemistry lab until midnight and forgot my keycard inside my room."</p>
                         <ul class="anomaly-list">
-                            <li><span>[OBSERVATION A]</span> The textbook he is reading is held upside down.</li>
-                            <li><span>[OBSERVATION B]</span> Julian is severely left-handed, yet tonight he has been taking notes with his right hand.</li>
-                            <li><span>[OBSERVATION C]</span> His winter coat is bone-dry, despite claims he walked back from the library in the rain at 5:30 PM.</li>
+                            <li><span>[LAPTOP MISMATCH]</span> The campus server shows her keycard was used to enter the dormitory four hours ago—and never swiped out.</li>
+                            <li><span>[INTERROGATION FLAW]</span> When asked for her professor's surname, she paused for six seconds before giving the name of a retired faculty member.</li>
+                            <li><span>[PEEPHOLE OBSERVATION]</span> Despite claiming she is freezing, you cannot see her breath in the cold hallway air.</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- SEKME 2 İÇERİĞİ -->
-                <div id="bunk2" class="tab-panel">
+                <div id="knock2" class="tab-panel">
                     <div class="subject-card">
-                        <span class="mono" style="color: var(--text-muted);">Occupant #02</span>
-                        <h3>Marcus K.</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin: 4px 0 0 0;">Architecture // Desk Corner</p>
-                        <span class="mono subject-status">Alibi: Asleep since 8:00 PM</span>
+                        <span class="mono" style="color: var(--crimson);">LAPTOP DATABASE RECORD</span>
+                        <h3>David Mercer</h3>
+                        <div class="db-row">
+                            <span class="db-label">Assigned Room</span>
+                            <span class="db-val">Room 412</span>
+                        </div>
+                        <div class="db-row">
+                            <span class="db-label">Medical File Note</span>
+                            <span class="db-val">Broken Left Wrist (Cast)</span>
+                        </div>
+                        <div class="db-row">
+                            <span class="db-label">Emergency Contact</span>
+                            <span class="db-val">Sister (Claire)</span>
+                        </div>
+                        <span class="mono subject-status">DB Status: Signed Out (17:30)</span>
                     </div>
                     <div class="subject-notes">
-                        <p>Marcus insists you are being paranoid and keeps trying to convince everyone to turn off the emergency lantern and go to sleep.</p>
+                        <p>"Hey, it's David from 412. The fog out there is insane. Let me in, my hands are shaking so bad I can't hold my keys."</p>
                         <ul class="anomaly-list">
-                            <li><span>[OBSERVATION A]</span> When you asked him about the scar on his chin, he touched the wrong side of his face.</li>
-                            <li><span>[OBSERVATION B]</span> His boots by the door are covered in wet courtyard mud, though he claims he never went downstairs.</li>
-                            <li><span>[OBSERVATION C]</span> Every time you look away, he quietly mimics the exact posture you were just standing in.</li>
+                            <li><span>[LAPTOP MISMATCH]</span> The campus infirmary logged a plaster cast on his left arm yesterday. The figure outside is knocking with both hands uninjured.</li>
+                            <li><span>[INTERROGATION FLAW]</span> He recited his student ID number backwards without realizing it.</li>
+                            <li><span>[PEEPHOLE OBSERVATION]</span> He is standing far too close to the door lens, staring directly into the glass without blinking.</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- SEKME 3 İÇERİĞİ -->
-                <div id="bunk3" class="tab-panel">
+                <div id="knock3" class="tab-panel">
                     <div class="subject-card">
-                        <span class="mono" style="color: var(--text-muted);">Room Evidence</span>
-                        <h3>Shared Washroom</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin: 4px 0 0 0;">Locked from the outside</p>
-                        <span class="mono subject-status">Status: Unexplained</span>
+                        <span class="mono" style="color: var(--crimson);">LAPTOP DATABASE RECORD</span>
+                        <h3>No Match Found</h3>
+                        <div class="db-row">
+                            <span class="db-label">Searched Name</span>
+                            <span class="db-val">[YOUR OWN NAME]</span>
+                        </div>
+                        <div class="db-row">
+                            <span class="db-label">Current Location</span>
+                            <span class="db-val">Active at Terminal</span>
+                        </div>
+                        <div class="db-row">
+                            <span class="db-label">Network Status</span>
+                            <span class="db-val">Local Wi-Fi Spoofed</span>
+                        </div>
+                        <span class="mono subject-status">DB Status: CRITICAL ERROR</span>
                     </div>
                     <div class="subject-notes">
-                        <p>Neither Julian nor Marcus admits to using the washroom after 10:00 PM. Yet the sink is still dripping warm water.</p>
+                        <p>"Open the door. Something is inside that room with you right now. Look at your laptop webcam light—it's been recording you for an hour."</p>
                         <ul class="anomaly-list">
-                            <li><span>[OBSERVATION A]</span> A second set of identical dormitory keys was found dropped inside the drain.</li>
-                            <li><span>[OBSERVATION B]</span> Someone scratched out one face on the Polaroid group photo taped to the mirror.</li>
-                            <li><span>[OBSERVATION C]</span> When the fluorescent light flickers, the reflection in the glass takes half a second longer to turn its head.</li>
+                            <li><span>[LAPTOP MISMATCH]</span> An incoming chat message just popped up on your desktop from your own student account.</li>
+                            <li><span>[INTERROGATION FLAW]</span> The voice on the other side of the door is speaking in your exact cadence.</li>
+                            <li><span>[PEEPHOLE OBSERVATION]</span> The hallway outside is completely empty, yet the knocking on the steel door is getting louder.</li>
                         </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- BÖLÜM 3: GECE KURALLARI -->
-            <section id="curfew" class="rules-grid">
+            <!-- BÖLÜM 3: OYNANIŞ DÖNGÜSÜ (GİZEMLİ DİLLE) -->
+            <section id="protocol" class="rules-grid">
                 <div class="rule-col">
-                    <span class="rule-num">PROTOCOL // 01</span>
-                    <h3>Cross-Check the Lies</h3>
-                    <p>Compare what your roommates say against physical clues left in drawers, phone logs, and class schedules. An Absentee only knows what it has overheard in this room.</p>
+                    <span class="rule-num">STEP // 01</span>
+                    <h3>Search the Laptop</h3>
+                    <p>Access the university intranet, student dossiers, CCTV timestamps, and private emails. Every visitor leaves digital footprints—find out if their story holds up.</p>
                 </div>
                 <div class="rule-col">
-                    <span class="rule-num">PROTOCOL // 02</span>
-                    <h3>Conceal Your Suspicion</h3>
-                    <p>If it realizes you have figured out its identity before you reach the door key, it stops pretending. Keep your tone calm and your questions casual.</p>
+                    <span class="rule-num">STEP // 02</span>
+                    <h3>Press for Details</h3>
+                    <p>Question them through the door. Ask about their classes, their roommates, or where they were when the lockdown started. Watch how their face reacts when you catch a contradiction.</p>
                 </div>
                 <div class="rule-col">
-                    <span class="rule-num">PROTOCOL // 03</span>
-                    <h3>Make the Final Call</h3>
-                    <p>Before dawn, one person must be locked outside in the corridor. Choose carefully. If you exile your real friend, you lock yourself inside with the mimic.</p>
+                    <span class="rule-num">STEP // 03</span>
+                    <h3>Admit or Lockdown</h3>
+                    <p>Turn the key for genuine students seeking shelter, or trigger the security shutters on the impostors. One mistake lets an Absentee into the dormitory.</p>
                 </div>
             </section>
 
@@ -746,9 +795,9 @@
             <section id="studio" class="studio-section">
                 <div class="studio-info">
                     <span class="mono section-tag">Gwyllsumu Games</span>
-                    <h2>Prepare for Roll Call</h2>
+                    <h2>Take the Night Desk</h2>
                     <p style="margin: 0; color: var(--text-body);">
-                        <strong>The Absentee</strong> is currently in development by Gwyllsumu Games. The first playable night will launch soon as a free demo on itch.io. Follow our official channels for development updates.
+                        <strong>The Absentee</strong> is in active development by Gwyllsumu Games. The first playable shift will launch soon as a demo on itch.io. Follow our channels for development updates and release alerts.
                     </p>
                 </div>
 
@@ -769,7 +818,7 @@
         </main>
     </div>
 
-    <!-- SEKMELERİN ÇALIŞMASINI SAĞLAYAN KÜÇÜK KOD -->
+    <!-- SEKMELERİN ÇALIŞMASINI SAĞLAYAN KOD -->
     <script>
         function openFile(evt, fileId) {
             const panels = document.querySelectorAll('.tab-panel');
