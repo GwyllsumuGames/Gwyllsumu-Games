@@ -34,25 +34,25 @@
             margin: 0;
             padding: 0;
             line-height: 1.75;
-            font-size: 17px; /* Okunabilirlik için ideal büyük punto */
+            font-size: 17px;
             -webkit-font-smoothing: antialiased;
         }
 
         /* TİPOGRAFİ */
-        h1, h2, h3, .serif-italic {
+        h1, h2, h3 {
             font-family: 'Cormorant Garamond', serif;
             color: var(--text-bright);
             margin: 0;
             font-weight: 600;
         }
 
-        /* ÜST MENÜ (Indie Stüdyo Standardı) */
+        /* ÜST MENÜ */
         nav {
             position: fixed;
             top: 0; left: 0; right: 0;
             height: 75px;
             background: rgba(7, 7, 9, 0.85);
-            backdrop-filter: blur(12px); /* Modern buzlu cam efekti */
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-subtle);
             display: flex;
             justify-content: space-between;
@@ -94,20 +94,39 @@
             color: var(--text-bright);
         }
 
-        .nav-wishlist {
-            padding: 9px 20px;
-            border: 1px solid var(--crimson);
-            color: var(--text-bright) !important;
-            background: rgba(185, 28, 28, 0.15);
+        /* ÜST MENÜDEKİ ITCH.IO DURUM GÖSTERGESİ */
+        .nav-status {
+            padding: 8px 16px;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.03);
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
             border-radius: 2px;
-            transition: all 0.25s ease !important;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .nav-wishlist:hover {
-            background: var(--crimson);
+        /* YANIP SÖNEN KIRMIZI NOKTA EFEKTİ */
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--crimson);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px var(--crimson);
+            animation: pulse 2s infinite;
         }
 
-        /* GİRİŞ EKRANI (HERO) */
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        /* GİRİŞ EKRANI (HERO) - Geçici Karanlık Korku Görseli */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -117,8 +136,8 @@
             padding: 120px 20px 80px;
             position: relative;
             background: 
-                radial-gradient(circle at center, rgba(185, 28, 28, 0.08) 0%, rgba(7, 7, 9, 0.95) 70%),
-                url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2069&auto=format&fit=crop') no-repeat center center/cover;
+                radial-gradient(circle at center, rgba(185, 28, 28, 0.08) 0%, rgba(7, 7, 9, 0.95) 75%),
+                url('https://images.unsplash.com/photo-1509114397022-ed747cca3f65?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
             border-bottom: 1px solid var(--border-subtle);
         }
 
@@ -153,27 +172,24 @@
             font-weight: 400;
         }
 
-        /* ANA BUTON */
-        .btn-primary {
-            display: inline-block;
-            background-color: var(--crimson);
+        /* ANA EKRAN "ITCH.IO DEMO SOON" ROZETİ */
+        .demo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: rgba(185, 28, 28, 0.12);
+            border: 1px solid var(--crimson);
             color: var(--text-bright);
-            text-decoration: none;
-            padding: 16px 42px;
+            padding: 16px 38px;
             font-size: 0.95rem;
             font-weight: 500;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
             border-radius: 2px;
-            transition: background-color 0.25s ease, transform 0.2s ease;
+            cursor: default;
         }
 
-        .btn-primary:hover {
-            background-color: #991b1b;
-            transform: translateY(-2px);
-        }
-
-        /* ÖZEL TASARIM: SOLU SABİT, SAĞI AKAN BÖLÜM (Editorial Split Layout) */
+        /* SOLU SABİT, SAĞI AKAN BÖLÜM */
         .split-section {
             max-width: 1200px;
             margin: 0 auto;
@@ -209,7 +225,7 @@
             color: var(--text-body);
         }
 
-        /* OYUN İÇİ NOT / KANIT KUTUSU (Hikayeye derinlik katan tasarım) */
+        /* OYUN İÇİ NOT / KANIT KUTUSU */
         .evidence-card {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-subtle);
@@ -236,7 +252,7 @@
             line-height: 1.5;
         }
 
-        /* ÖZELLİKLER LİSTESİ (Klişe 3 kutu yerine numaralı editoryal satırlar) */
+        /* ÖZELLİKLER LİSTESİ */
         .pillars-list {
             display: flex;
             flex-direction: column;
@@ -274,7 +290,7 @@
             color: var(--text-body);
         }
 
-        /* GÖRSEL VİTRİN (SCREENSHOT SHOWCASE) */
+        /* GÖRSEL VİTRİN (GEÇİCİ KORKU RESİMLERİ) */
         .showcase-section {
             max-width: 1200px;
             margin: 0 auto;
@@ -396,8 +412,8 @@
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
-            .nav-links a:not(.nav-wishlist) {
-                display: none; /* Mobilde menüyü sadeleştir */
+            .nav-links a {
+                display: none;
             }
             footer {
                 flex-direction: column;
@@ -416,7 +432,9 @@
             <a href="#story">The Story</a>
             <a href="#gameplay">Gameplay</a>
             <a href="#media">Visuals</a>
-            <a href="#community" class="nav-wishlist">Wishlist on Steam</a>
+            <div class="nav-status">
+                <span class="pulse-dot"></span> itch.io Demo Soon
+            </div>
         </div>
     </nav>
 
@@ -426,11 +444,15 @@
             <span class="eyebrow">A First-Person Psychological Horror</span>
             <h1>DARK SECRET</h1>
             <p class="hero-quote">"We thought the fire buried the truth. It only kept it warm."</p>
-            <a href="#community" class="btn-primary">Wishlist on Steam</a>
+            
+            <!-- İSTEDİĞİN ITCH.IO DEMO ROZETİ -->
+            <div class="demo-badge">
+                <span class="pulse-dot"></span> itch.io Demo Soon
+            </div>
         </div>
     </header>
 
-    <!-- BÖLÜM 1: HİKAYE (SOLU SABİT, SAĞI AKAN TASARIM) -->
+    <!-- BÖLÜM 1: HİKAYE -->
     <section id="story" class="split-section">
         <div class="sticky-header">
             <span class="eyebrow">01 / Synopsis</span>
@@ -441,7 +463,6 @@
         <div class="narrative-content">
             <p>For twelve years, the charred remains of the Blackwood Estate have stood untouched behind police cordons. The official investigation concluded it was an accidental electrical fire. Your sister, an investigative archivist, disagreed—until she vanished inside the perimeter three days ago.</p>
             
-            <!-- Oyun içi bir mektup/kanıt alıntısı: Siteye karakter katan detay -->
             <div class="evidence-card">
                 <span class="evidence-meta">Recovered Audio Log — Tape #04</span>
                 <blockquote>"The floorboards don't creak because they are old. They creak because something underneath is pressing up against them. Do not come looking for me."</blockquote>
@@ -451,7 +472,7 @@
         </div>
     </section>
 
-    <!-- BÖLÜM 2: OYNANIŞ (NUMARALI EDİTORYAL DÜZEN) -->
+    <!-- BÖLÜM 2: OYNANIŞ -->
     <section id="gameplay" class="split-section">
         <div class="sticky-header">
             <span class="eyebrow">02 / Mechanics</span>
@@ -486,7 +507,7 @@
         </div>
     </section>
 
-    <!-- BÖLÜM 3: GÖRSELLER (ASİMETRİK GALERİ) -->
+    <!-- BÖLÜM 3: GÖRSELLER (ŞİMDİLİK GEÇİCİ KORKU RESİMLERİ) -->
     <section id="media" class="showcase-section">
         <div class="showcase-header">
             <div>
@@ -513,13 +534,13 @@
         <div class="studio-inner">
             <span class="eyebrow">Independent Development</span>
             <h2>Follow the Journey</h2>
-            <p>Dark Secret is being crafted by a dedicated independent team obsessed with atmospheric storytelling. Join our community for behind-the-scenes development logs, sound design previews, and playtest announcements.</p>
+            <p>Dark Secret is currently in active development. A playable demo will be released soon on itch.io. Follow our official channels for development logs, sound design previews, and release announcements.</p>
             
             <div class="community-links">
-                <a href="#" class="outline-btn">Steam Page</a>
+                <a href="#" class="outline-btn">itch.io (Demo Soon)</a>
                 <a href="#" class="outline-btn">Discord Server</a>
                 <a href="#" class="outline-btn">Twitter / X</a>
-                <a href="#" class="outline-btn">Press Kit</a>
+                <a href="#" class="outline-btn">YouTube</a>
             </div>
         </div>
     </section>
@@ -527,7 +548,7 @@
     <!-- FOOTER -->
     <footer>
         <div>&copy; 2026 Your Studio Name. All rights reserved.</div>
-        <div>Steam and the Steam logo are trademarks of Valve Corporation.</div>
+        <div>Playable demo coming soon to itch.io</div>
     </footer>
 
 </body>
